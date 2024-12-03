@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Balsa's Birthday Celebration</title>
+
+  <style>
+    /* General Styles */
+    body {
+      font-family: Arial, sans-serif;
+      color: #fff;
+      margin: 0;
+      padding: 0;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      background-color: #0d1b2a; /* Dark blue background */
+      overflow: hidden;
+    }
+
+    /* Background video */
+    video.background-video {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      z-index: -2; /* Keep it behind all content */
+    }
+
+    /* Batman sticker */
+    .batman-sticker {
+      position: absolute;
+      top: 10px;
+      left: 10px;
+      width: 100px;
+      opacity: 0.8; /* Slight transparency */
+      z-index: -1; /* Above video, below content */
+    }
+
+    /* Centered Content */
+    .content {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      z-index: 1; /* Content is above background */
+      padding: 20px;
+    }
+
+    /* Birthday Message */
+    .birthday-message {
+      font-size: 2em;
+      font-weight: bold;
+      color: #ffbf00; /* Yellow text */
+      margin-bottom: 20px; /* Space between the message and the button */
+      text-shadow: 1px 1px 2px #000; /* Make it stand out */
+    }
+
+    /* Surprise Button */
+    .surprise-button {
+      padding: 15px 30px;
+      font-size: 1.2em;
+      font-weight: bold;
+      background-color: #ffbf00; /* Yellow button */
+      color: #000;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+      box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
+    }
+
+    .surprise-button:hover {
+      background-color: #ffd700; /* Lighter yellow */
+    }
+
+    /* Hidden surprise video */
+    .hidden-video {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: #000;
+      z-index: 10;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .hidden-video video {
+      width: 90%;
+      height: auto;
+    }
+
+    /* Media Queries for Mobile */
+    @media (max-width: 768px) {
+      .birthday-message {
+        font-size: 1.5em;
+      }
+
+      .surprise-button {
+        font-size: 1em;
+        padding: 10px 20px;
+      }
+
+      .batman-sticker {
+        width: 80px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .birthday-message {
+        font-size: 1.2em;
+      }
+
+      .surprise-button {
+        font-size: 0.9em;
+        padding: 8px 16px;
+      }
+
+      .batman-sticker {
+        width: 60px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Background Video -->
+  <video class="background-video" autoplay muted loop>
+    <source src="video/CHRIS.mp4" type="video/mp4">
+    Your browser does not support the video tag.
+  </video>
+
+  <!-- Batman Sticker -->
+  <img src="picture/BATMAN.png" alt="Batman Sticker" class="batman-sticker">
+
+  <!-- Main Content -->
+  <div class="content">
+    <div class="birthday-message">🎉 Balša Srećan 21 Rođendan 🥷💣🎉 <br> You are finally an adult!</div>
+    <button class="surprise-button" onclick="playSurpriseVideo()">🎁 Click for Surprise!</button>
+  </div>
+
+  <!-- Hidden Surprise Video -->
+  <div class="hidden-video" id="surprise-video-container">
+    <video id="surprise-video" controls>
+      <source src="video/BALSA.mp4" type="video/mp4">
+      Your browser does not support the video tag.
+    </video>
+  </div>
+
+  <script>
+    // Function to play the surprise video
+    function playSurpriseVideo() {
+      const videoContainer = document.getElementById('surprise-video-container');
+      const video = document.getElementById('surprise-video');
+
+      // Show the video container
+      videoContainer.style.display = 'flex';
+
+      // Play the video
+      video.play();
+    }
+  </script>
+</body>
+</html>
